@@ -1,6 +1,4 @@
 import json
-import random
-
 from camera_reader import Reader
 from counter import Counter
 from time import sleep, time
