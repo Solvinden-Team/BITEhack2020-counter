@@ -1,9 +1,8 @@
 import cv2
-import dlib
 import imutils
 import numpy as np
+from pyimagesearch.centroidtracker import CentroidTracker
 
-from src.pyimagesearch.centroidtracker import CentroidTracker
 
 class Counter:
     CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
@@ -37,9 +36,4 @@ class Counter:
                 class_idx = int(detections[0, 0, i, 1])
                 if self.CLASSES[class_idx] == "person":
                     cnt += 1
-                #box = detections[0, 0, i, 3:7] * np.array([self.W, self.H, self.W, self.H])
-                #(startX, startY, endX, endY) = box.astype('int')
-                #tracker = dlib.correlation_tracker()
-                #rect = dlib.rectangle(startX, startY, endX, endY)
-                #tracker.start_track(image, rect)
         return cnt
